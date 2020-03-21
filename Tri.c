@@ -72,3 +72,19 @@ int* TriFusion(int *tab){
   return tab;
 }
 
+//=====================Tri a Bulles===============
+
+int* TriBulles(int *tab){
+  int len = sizeof(tab)/sizeof(tab[0]) + 1;
+  int temp = 0;
+  for (int i = len - 1; i <= 1; i--){
+    for (int j = 0; j <= i - 1; j++){
+      if (tab[j + 1] < tab[j]){
+        temp = tab[j + 1];
+        tab[j + 1] = tab[j];
+        tab[j] = temp;
+      }
+    }
+  }
+  return tab;
+}

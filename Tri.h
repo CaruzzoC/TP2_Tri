@@ -10,5 +10,6 @@ int* TriSelection(int *tab);
 int* fusion(int *tab, int deb, int mid, int fin);
 int* mergeSort(int *tab, int i, int j);
 int* TriFusion(int *tab);
+int* TriBulles(int *tab);
 
 #endif

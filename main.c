@@ -38,20 +38,14 @@ int main(void) {
 
   printf("\nTest de TriSelection : %i, %i\n",TriTest(TriSelection(tab), tabTrie),TriTest(TriSelection(tab2), tabTrie2));
   printf("\nTest de TriFusion : %i, %i\n",TriTest(TriFusion(tab), tabTrie),TriTest(TriFusion(tab2), tabTrie2));
+  printf("\nTest de TriBulles : %i, %i\n",TriTest(TriBulles(tab), tabTrie),TriTest(TriBulles(tab2), tabTrie2));
 
   //========================Main==========================
 
-  TriSelection(tab2);
-  for(int i=0;i<4;i++){
-    printf("%i,",tab2[i]);
-  }
-  printf("\n");
-
-  TriFusion(tab);
+  TriBulles(tab);
   for(int i=0;i<4;i++){
     printf("%i,",tab[i]);
   }
-
 
 
 
