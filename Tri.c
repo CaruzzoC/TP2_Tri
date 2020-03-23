@@ -11,7 +11,7 @@ void swap(int *x, int *y){
 for(int k=0;k<n;k++){
         printf("%i,",tab[k]);
       }
-      printf("\n");
+printf("\n");
 */
 //=====================================TriSelection================================
 
@@ -32,36 +32,36 @@ int* TriSelection(int *tab, int n){
 
 //=====================================TriFusion=============================
 void fusion(int *tab, int deb, int mid, int fin){
-  int len = sizeof(tab)/sizeof(tab[0]) + 1;
-  int i = 0; int i1 = tab[0]; int i2 = tab[len/2 + 1];
-  while (i1 <= mid && i2 <= len){
+  int i = 0; int i1 = deb; int i2 = mid + 1;
+  int *temp = malloc(fin*sizeof(int));
+  while (i1 <= mid && i2 <= fin){
     if (tab[i1] < tab[i2]) {
-      tab[i] = tab[i1];
+      temp[i] = tab[i1];
       i1++;
     }
     else{
-      tab[i] = tab[i2];
+      temp[i] = tab[i2];
       i2++;
     }
     i++;
   }
   if (i1 < mid + 1){
     for (int j = i1; j <= mid; j++){
-      tab[i] = tab[j];
+      temp[i] = tab[j];
       i++;
     }
   }
   else{
     if(i2 < fin + 1){
       for (int j = i2; j <= fin; j++){
-        tab[i] = tab[j];
+        temp[i] = tab[j];
         i++;
       }
     }
   }
   int k = 0;
   for(i = deb; i <= fin; i++){
-    tab[i] = tab[k];
+    tab[i] = temp[k];
     k++;
   }
 }
@@ -69,13 +69,13 @@ void fusion(int *tab, int deb, int mid, int fin){
 void mergeSort(int *tab, int i, int j){
   if(i < j){
     mergeSort(tab, i, (i + j) / 2);
-    mergeSort(tab, (i + j) / 2 + 1, j);
+    mergeSort(tab, ((i + j) / 2) + 1, j);
     fusion(tab, i, (i + j) / 2, j);
   }
 }
 
-int* TriFusion(int *tab){
-  mergeSort(tab, 0, sizeof(tab)/sizeof(tab[0]) - 2);
+int* TriFusion(int *tab, int n){
+  mergeSort(tab, 0, n-1);
   return tab;
 }
 
