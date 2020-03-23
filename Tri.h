@@ -6,10 +6,10 @@
 int TriTest(int *tabTrie, int *tabAVerif);
 
 
-int* TriSelection(int *tab);
-int* fusion(int *tab, int deb, int mid, int fin);
-int* mergeSort(int *tab, int i, int j);
+int* TriSelection(int *tab, int n);
+void fusion(int *tab, int deb, int mid, int fin);
+void mergeSort(int *tab, int i, int j);
 int* TriFusion(int *tab);
-int* TriBulles(int *tab);
+int* TriBulles(int *tab, int n);
 
 #endif

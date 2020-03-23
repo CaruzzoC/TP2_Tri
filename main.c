@@ -14,11 +14,12 @@ int main(void) {
   tabTrie[2] = 23;
   tabTrie[3] = 505;
 
-  int *tabTrie2 = malloc(4*sizeof(int));
+  int *tabTrie2 = malloc(5*sizeof(int));
   tabTrie2[0] = 0;
   tabTrie2[1] = 1;
   tabTrie2[2] = 1;
   tabTrie2[3] = 2;
+  tabTrie2[4] = 2;
 
   //========================Tab de Trie==================
 
@@ -28,25 +29,28 @@ int main(void) {
   tab[2] = 505;
   tab[3] = 8;
 
-  int *tab2 = malloc(4*sizeof(int));
+  int *tab2 = malloc(5*sizeof(int));
   tab2[0] = 1;
   tab2[1] = 2;
   tab2[2] = 0;
   tab2[3] = 1;
+  tab2[4] = 2;
 
   //========================Test==========================
 
-  printf("\nTest de TriSelection : %i, %i\n",TriTest(TriSelection(tab), tabTrie),TriTest(TriSelection(tab2), tabTrie2));
-  printf("\nTest de TriFusion : %i, %i\n",TriTest(TriFusion(tab), tabTrie),TriTest(TriFusion(tab2), tabTrie2));
-  printf("\nTest de TriBulles : %i, %i\n",TriTest(TriBulles(tab), tabTrie),TriTest(TriBulles(tab2), tabTrie2));
+  //printf("\nTest de TriSelection : %i, %i\n",TriTest(TriSelection(tab,4), tabTrie),TriTest(TriSelection(tab2,4), tabTrie2));
+  //printf("\nTest de TriFusion : %i, %i\n",TriTest(TriFusion(tab), tabTrie),TriTest(TriFusion(tab2), tabTrie2));
+  //printf("\nTest de TriBulles : %i, %i\n",TriTest(TriBulles(tab,5), tabTrie),TriTest(TriBulles(tab2,5), tabTrie2));
 
   //========================Main==========================
 
-  TriBulles(tab);
+  
+  //TriFusion(tab);
+  /*
   for(int i=0;i<4;i++){
     printf("%i,",tab[i]);
   }
-
+  */
 
 
 
