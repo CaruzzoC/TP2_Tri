@@ -24,5 +24,8 @@ double triSelectionPerf(int *tab, int n, int taille);
 double triFusionPerf(int *tab, int n, int taille);
 double triBullesPerf(int *tab, int n, int taille);
 double triRapidePerf(int *tab, int n, int taille);
+double* ResultPerf(int Precision, int taille);
+
+void create_result_csv(char *filename, int count);
 
 #endif

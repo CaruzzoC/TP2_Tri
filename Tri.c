@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <sys/types.h>
+#include<string.h>
 
 //===================================Utilitaire===================================
 void swap(int *x, int *y){
@@ -27,12 +28,12 @@ double triSelectionPerf(int *tab, int n, int taille){
   double SExeTime = 0;
   int *TimeArrayTestCopy = malloc(taille*sizeof(int));
   for (int i = 0; i < n; i++){
-    copyTab(tab, TimeArrayTestCopy, n);
+    copyTab(tab, TimeArrayTestCopy, taille);
     clock_t start, end;
     start = clock();
     TriSelection(TimeArrayTestCopy,taille);
     end = clock();
-    SExeTime += (double)(end - start) / CLOCKS_PER_SEC;
+    SExeTime += (double)(end - start) / CLOCKS_PER_SEC * 100000;
   }
   free(TimeArrayTestCopy);
   double MExeTime = SExeTime / n;
@@ -43,12 +44,12 @@ double triFusionPerf(int *tab, int n, int taille){
   double SExeTime = 0;
   int *TimeArrayTestCopy = malloc(taille*sizeof(int));
   for (int i = 0; i < n; i++){
-    copyTab(tab, TimeArrayTestCopy, n);
+    copyTab(tab, TimeArrayTestCopy, taille);
     clock_t start, end;
     start = clock();
     TriFusion(TimeArrayTestCopy,taille);
     end = clock();
-    SExeTime += (double)(end - start) / CLOCKS_PER_SEC;
+    SExeTime += (double)(end - start) / CLOCKS_PER_SEC * 100000;
   }
   free(TimeArrayTestCopy);
   double MExeTime = SExeTime / n;
@@ -59,12 +60,12 @@ double triBullesPerf(int *tab, int n, int taille){
   double SExeTime = 0;
   int *TimeArrayTestCopy = malloc(taille*sizeof(int));
   for (int i = 0; i < n; i++){
-    copyTab(tab, TimeArrayTestCopy, n);
+    copyTab(tab, TimeArrayTestCopy, taille);
     clock_t start, end;
     start = clock();
     TriBulles(TimeArrayTestCopy,taille);
     end = clock();
-    SExeTime += (double)(end - start) / CLOCKS_PER_SEC;
+    SExeTime += (double)(end - start) / CLOCKS_PER_SEC * 100000;
   }
   free(TimeArrayTestCopy);
   double MExeTime = SExeTime / n;
@@ -75,18 +76,48 @@ double triRapidePerf(int *tab, int n, int taille){
   double SExeTime = 0;
   int *TimeArrayTestCopy = malloc(taille*sizeof(int));
   for (int i = 0; i < n; i++){
-    copyTab(tab, TimeArrayTestCopy, n);
+    copyTab(tab, TimeArrayTestCopy, taille);
     clock_t start, end;
     start = clock();
     TriRapide(TimeArrayTestCopy, 0, taille);
     end = clock();
-    SExeTime += (double)(end - start) / CLOCKS_PER_SEC;
+    SExeTime += (double)(end - start) / CLOCKS_PER_SEC * 100000;
   }
   free(TimeArrayTestCopy);
   double MExeTime = SExeTime / n;
   return MExeTime;
 }
 
+double* ResultPerf(int Precision, int taille){
+  double *ResultPerfArray = malloc(4 * sizeof(double));
+  int *TimeArrayTest = malloc(taille * sizeof(int));
+  genTab(TimeArrayTest, taille);
+  ResultPerfArray[0] = triSelectionPerf(TimeArrayTest, Precision, taille);
+  ResultPerfArray[1] = triFusionPerf(TimeArrayTest, Precision, taille);
+  ResultPerfArray[2] = triBullesPerf(TimeArrayTest, Precision, taille);
+  ResultPerfArray[3] = triRapidePerf(TimeArrayTest, Precision, taille);
+  
+  return ResultPerfArray;
+}
+
+
+void create_result_csv(char *filename, int count){
+FILE *fp;
+int i = 0;
+
+fp=fopen(filename,"w+");
+
+fprintf(fp,"Tri Selection, Tri Fusion, Tri à Bulles, Tri Rapide");
+printf("How many Result do you want to save? ");
+scanf("%d", &count);
+
+for(i = 1; i < count; i++){
+  fprintf(fp,"\n%i",count);
+}
+fclose(fp);
+
+printf("\n%s file created",filename);
+}
 
 
 

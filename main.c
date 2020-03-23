@@ -58,8 +58,16 @@ int main(void) {
   }
   */
 
-  printf("%f",triFusionPerf(TimeArrayTest, 100, 100));
+  //printf("%f",triFusionPerf(TimeArrayTest, 100, 100));
 
+  /*
+  ResultPerf(100,100);
+  for(int i=0;i<4;i++){
+    printf("%f ",ResultPerf(100,100)[i]);
+  }
+  */
+
+  create_result_csv("Result_Tri.csv", 1);
 
   free(TimeArrayTest);
   free(TimeArrayTestCopy);
