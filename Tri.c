@@ -102,21 +102,11 @@ double* ResultPerf(int Precision, int taille){
 
 
 void create_result_csv(char *filename, int count){
-FILE *fp;
-int i = 0;
-
-fp=fopen(filename,"w+");
-
-fprintf(fp,"Tri Selection, Tri Fusion, Tri à Bulles, Tri Rapide");
-printf("How many Result do you want to save? ");
-scanf("%d", &count);
-
-for(i = 1; i < count; i++){
-  fprintf(fp,"\n%i",count);
-}
-fclose(fp);
-
-printf("\n%s file created",filename);
+  FILE *fp;
+  fp=fopen(filename,"w+");
+  fprintf(fp,"Tri Selection, Tri Fusion, Tri à Bulles, Tri Rapide");
+  fclose(fp);
+  printf("\n%s file created",filename);
 }
 
 
