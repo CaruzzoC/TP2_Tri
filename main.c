@@ -39,8 +39,9 @@ int main(void) {
   //========================Test==========================
 
   //printf("\nTest de TriSelection : %i, %i\n",TriTest(TriSelection(tab,4), tabTrie),TriTest(TriSelection(tab2,4), tabTrie2));
-  printf("\nTest de TriFusion : %i, %i\n",TriTest(TriFusion(tab, 4), tabTrie),TriTest(TriFusion(tab2, 5), tabTrie2));
+  //printf("\nTest de TriFusion : %i, %i\n",TriTest(TriFusion(tab, 4), tabTrie),TriTest(TriFusion(tab2, 5), tabTrie2));
   //printf("\nTest de TriBulles : %i, %i\n",TriTest(TriBulles(tab,5), tabTrie),TriTest(TriBulles(tab2,5), tabTrie2));
+  //printf("\nTest de TriFusion : %i, %i\n",TriTest(TriRapide(tab, 0, 3), tabTrie),TriTest(TriRapide(tab2, 0, 4), tabTrie2));
 
   //========================Main==========================
 

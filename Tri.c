@@ -91,3 +91,28 @@ int* TriBulles(int *tab,int n){
   }
   return tab;
 }
+
+//===================Tri Rapide==================
+
+int Partition(int *tab, int deb, int fin){
+  int x = tab[fin];
+  int i = deb - 1;
+  for (int j = deb; j <= fin - 1; j++){
+    if (tab[j] <= x){
+      i++;
+      swap(&tab[i], &tab[j]);
+    }
+  }
+  swap(&tab[i + 1], &tab[fin]);
+  return i+1;
+}
+
+
+int* TriRapide(int *tab, int deb, int fin){
+  if (deb < fin){
+    int q = Partition(tab, deb, fin);
+    TriRapide(tab, deb, q - 1);
+    TriRapide(tab, q + 1, fin);
+  }  
+  return tab;
+}
