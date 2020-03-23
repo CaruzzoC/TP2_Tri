@@ -8,6 +8,11 @@ int main(void) {
 
   //========================Tab de TEST==================
 
+  int *TimeArrayTest = malloc(100*sizeof(int));
+  int *TimeArrayTestCopy = malloc(100*sizeof(int));
+  genTab(TimeArrayTest, 100);
+
+
   int *tabTrie = malloc(4*sizeof(int));
   tabTrie[0] = 8;
   tabTrie[1] = 10;
@@ -41,7 +46,7 @@ int main(void) {
   //printf("\nTest de TriSelection : %i, %i\n",TriTest(TriSelection(tab,4), tabTrie),TriTest(TriSelection(tab2,4), tabTrie2));
   //printf("\nTest de TriFusion : %i, %i\n",TriTest(TriFusion(tab, 4), tabTrie),TriTest(TriFusion(tab2, 5), tabTrie2));
   //printf("\nTest de TriBulles : %i, %i\n",TriTest(TriBulles(tab,5), tabTrie),TriTest(TriBulles(tab2,5), tabTrie2));
-  //printf("\nTest de TriFusion : %i, %i\n",TriTest(TriRapide(tab, 0, 3), tabTrie),TriTest(TriRapide(tab2, 0, 4), tabTrie2));
+  //printf("\nTest de TriRapide : %i, %i\n",TriTest(TriRapide(tab, 0, 3), tabTrie),TriTest(TriRapide(tab2, 0, 4), tabTrie2));
 
   //========================Main==========================
 
@@ -53,8 +58,14 @@ int main(void) {
   }
   */
 
+  printf("%f",triFusionPerf(TimeArrayTest, 100, 100));
 
 
-
+  free(TimeArrayTest);
+  free(TimeArrayTestCopy);
+  free(tabTrie);
+  free(tabTrie2);
+  free(tab);
+  free(tab2);
   return 0;
 }

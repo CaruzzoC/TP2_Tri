@@ -17,4 +17,12 @@ int* TriBulles(int *tab, int n);
 int Partition(int *tab, int deb, int fin);
 int* TriRapide(int *tab, int deb, int fin);
 
+void genTab(int *tab, int n);
+void copyTab(int *tab1, int *tab2, int n);
+
+double triSelectionPerf(int *tab, int n, int taille);
+double triFusionPerf(int *tab, int n, int taille);
+double triBullesPerf(int *tab, int n, int taille);
+double triRapidePerf(int *tab, int n, int taille);
+
 #endif
