@@ -4,7 +4,6 @@
 #include "Tri.h"
 
 int main(void) {
-  printf("Hello World\n");
 
   //========================Tab de TEST==================
 
@@ -50,22 +49,6 @@ int main(void) {
 
   //========================Main==========================
 
-  
-  //TriFusion(tab);
-  /*
-  for(int i=0;i<4;i++){
-    printf("%i,",tab[i]);
-  }
-  */
-
-  //printf("%f",triFusionPerf(TimeArrayTest, 100, 100));
-
-  /*
-  ResultPerf(100,100);
-  for(int i=0;i<4;i++){
-    printf("%f ",ResultPerf(100,100)[i]);
-  }
-  */
 
   create_result_csv("Result_Tri.csv", 1);
 
